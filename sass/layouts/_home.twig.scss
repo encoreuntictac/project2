@@ -1,0 +1,163 @@
+@use '../abstracts' as *;
+
+
+:where(.home-wrapper) {
+    --height: 100vh;
+
+    display: flex;
+    place-content: center;
+    align-items: center;
+    height: var(--height);
+    background: var(--greyLight-1);
+}
+//! --> Attention une partie du code que gère le Neumorphic ce trouver dans le COMPONENTS.
+
+
+:where(.home-left) {
+    display: none;
+}
+:where(.neumorphic-container.start) {
+    padding: 4rem 4rem 4rem 0;
+    // transition: all 3s ease-in-out;
+} 
+:where(.neumorphic-container.start .home-left) {
+    border-radius: 1rem;
+    display: flex;
+    flex: auto;
+    place-content: center;
+    align-items: center;
+    transition: height, width, 3s ease-in-out;
+    height: 100%;
+
+
+    :where(.home-box) {
+        // transition: all 3s ease-in-out;
+       
+        // he: fit-content;
+        // height: 100%;
+        display: flex;
+        flex-flow: column;
+        place-content: center;
+
+        :where(.box-titre) {
+            padding: 1rem;
+            transition: all 3s ease-in-out;
+            font-size: 2rem;
+
+            :where(span) {
+                color: var(--clr-theme);
+            }
+        }
+        :where(.box-content) {
+            display: flex;
+            place-content: center;
+            // flex: auto;
+            gap: 3rem;
+            color:#A6A6A6;
+            // height: fit-content;
+            padding: 1rem;
+            flex-wrap: wrap;
+            overflow: hidden;
+            transition: all 3s ease-in-out;
+
+        }
+        :where(.box-item) {
+
+            transition: animation .2s ease-in-out;
+            animation: appear 4s;
+            box-shadow: $shadow;
+            padding: .5rem;
+            width: 150px;
+            border-radius: 2rem;
+            // opacity: 1;
+        }
+        :where(.box-item:hover .box-text) {
+            box-shadow: $inner-shadow;
+            color: var(--clr-theme);
+        }
+        :where(.box-text) {
+            height: 100%;
+            border-radius: 2rem;
+            padding: 2rem;
+            text-align: center;
+            display: flex;
+            flex-flow: column;
+            gap: 2rem;
+
+
+            :where(p) {
+                height: 100%;
+                text-align: justify;
+                line-height: 1.6;
+            }
+            :where(button) {
+                border-radius: 3rem;
+                box-shadow: $shadow;
+                padding: .25rem;
+                background-color: inherit;
+                cursor: pointer;
+                :where(span) {
+                    padding: .5rem;
+                    display: block;
+                    border-radius: 3rem;
+                }
+            }
+        }
+    }
+}
+
+:where(.neumorphic-container .home-formulaires) {
+    width: 0;
+    overflow: hidden;
+    transition: all 2s ease-in-out;
+}
+:where(.neumorphic-container.start .home-formulaires) {
+    :where(.home-form-container) {
+        box-shadow: $inner-shadow;
+        border-radius: 1rem;
+        height: 100%;
+        padding: 5rem;
+        // transform: translateX(110%);
+        // position: relative;
+        // left: 110%;
+        transition: all 1s ease-in-out;
+        // display: block;
+        opacity: 0;
+    }
+
+    :where(&.active) {
+        flex: 1.5;
+        box-shadow: $shadow;
+        border-radius: 2rem;
+        padding: .5rem;
+        height: 100%;
+
+
+        :where(.home-form-container) {
+
+            
+            opacity: 1;
+            transition: opacity 5s ease-in-out;
+        }
+    }
+}
+:where(.neumorphic-container.start .home-formulaires.active .home-form-container) {
+
+}
+:where(.neumorphic-container.start .home-left.active) {
+    flex: 1;
+
+    :where(.box-titre) {
+        padding: 0 0 3rem 8rem;
+    }
+    :where(.box-content) {
+        gap: 5rem;
+        height: fit-content;
+        // display: grid;
+        // grid-template-columns: 1fr 1fr;
+    }
+    :where(.box-item:has(.btn-box.active)) {
+        color: var(--clr-theme);
+        box-shadow: $inner-shadow;
+    }
+}
