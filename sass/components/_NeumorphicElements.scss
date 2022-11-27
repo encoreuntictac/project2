@@ -2,20 +2,20 @@
 
 
 :where(.neumorphic-container) {
-    --taille: 300px;
+    // --taille: 300px;
 
-    position: relative;
-    display: flex;
-    place-content: center;
-    align-items: center;
-    border-radius: 3rem;
-    box-shadow: $shadow;
-    border-radius: 1rem;
-    transition: height, width, 2s ease-in-out;
-    height: var(--taille);
-    width: var(--taille);
-    max-width: 1400px;
-    overflow: hidden;
+
+    // position: relative;
+    // display: flex;
+    // place-content: center;
+    // align-items: center;
+    // border-radius: 3rem;
+    // box-shadow: $shadow;
+    // border-radius: 1rem;
+    // transition: height, width, 2s ease-in-out;
+    // height: var(--taille);
+    // width: var(--taille);
+    // overflow: hidden;
 }
 :where(.btn-start) {
     --taille: 175px;
@@ -64,7 +64,7 @@
     --height: 80%;
     --width: 90%;
 
-    // padding: 1rem;
+    
     height: var(--height);
     width: var(--width); 
 
@@ -80,7 +80,6 @@
     :where(.neumorphic-effet1, .neumorphic-effet2) {
         background: inherit;
         box-shadow: none;
-
     }
 }
 

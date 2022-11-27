@@ -1,25 +1,39 @@
 @use '../abstracts' as *;
 
+// :where(.default-page) {
+//     background: var(--greyLight-1);
+// }
 
-:where(.home-wrapper) {
-    --height: 100vh;
+:where(.sidebar-wrapper) {
+    // --height: 100vh;
 
-    display: flex;
-    place-content: center;
-    align-items: center;
-    height: var(--height);
-    background: var(--greyLight-1);
+
+    // display: flex;
+    // place-content: center;
+    // align-items: center;
+    // height: var(--height);
+    // margin: auto;
+    max-width: 1400px;
+    padding: 5rem;
+    // justify-content: space-between;
+    flex: auto;
+
+    
+    &:has(.home-left.active) {
+        justify-content: flex-start
+    }
 }
 //! --> Attention une partie du code que gère le Neumorphic ce trouver dans le COMPONENTS.
-
-
 :where(.home-left) {
     display: none;
 }
 :where(.neumorphic-container.start) {
-    padding: 4rem 4rem 4rem 0;
-    // transition: all 3s ease-in-out;
-} 
+    flex: content; //* poour que les 4button de formulaire n'apparait en bouge dans tout le sens.                
+
+    &:has(.home-left.active) {
+        width: 43rem;
+    }
+}
 :where(.neumorphic-container.start .home-left) {
     border-radius: 1rem;
     display: flex;
@@ -28,11 +42,10 @@
     align-items: center;
     transition: height, width, 3s ease-in-out;
     height: 100%;
-
-
+    
     :where(.home-box) {
         // transition: all 3s ease-in-out;
-       
+
         // he: fit-content;
         // height: 100%;
         display: flex;
@@ -51,11 +64,11 @@
         :where(.box-content) {
             display: flex;
             place-content: center;
-            // flex: auto;
+            flex: auto;
             gap: 3rem;
             color:#A6A6A6;
             // height: fit-content;
-            padding: 1rem;
+            padding: 1rem 4rem;
             flex-wrap: wrap;
             overflow: hidden;
             transition: all 3s ease-in-out;
@@ -105,13 +118,12 @@
         }
     }
 }
-
-:where(.neumorphic-container .home-formulaires) {
+/* :where(.neumorphic-container .home-formulaires) {
     width: 0;
     overflow: hidden;
     transition: all 2s ease-in-out;
-}
-:where(.neumorphic-container.start .home-formulaires) {
+} */
+/* :where(.neumorphic-container.start .home-formulaires) {
     :where(.home-form-container) {
         box-shadow: $inner-shadow;
         border-radius: 1rem;
@@ -140,12 +152,9 @@
             transition: opacity 5s ease-in-out;
         }
     }
-}
-:where(.neumorphic-container.start .home-formulaires.active .home-form-container) {
-
-}
+} */
 :where(.neumorphic-container.start .home-left.active) {
-    flex: 1;
+    // flex: auto;
 
     :where(.box-titre) {
         padding: 0 0 3rem 8rem;
@@ -160,4 +169,16 @@
         color: var(--clr-theme);
         box-shadow: $inner-shadow;
     }
+}
+:where(.main-wrapper) {
+    border: solid red;
+    width: 30rem;
+    display: none;
+    --height: 80%;
+    --width: 50%;
+    display: none;
+    
+    
+    height: var(--height);
+    width: var(--width); 
 }

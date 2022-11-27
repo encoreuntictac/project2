@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+        {% endblock %}
+
+        {% block javascripts %}
+            <script src="{{ asset('js/script.js') }}" defer></script>
+        {% endblock %}
+    </head>
+    <body class="default-page">
+
+        <main class="default-wrapper">
+
+            <div class="sidebar-wrapper">
+   
+                <div class="neumorphic-container">
+                    <button class="btn-start" id="btn-start">
+                        <span>Start</span>
+                    </button>
+                    <span class="neumorphic-effet1"></span>
+                    <span class="neumorphic-effet2"></span>
+
+                    <div class="home-left">
+                        <div class="home-box">
+                            <div class="box-titre">
+                                <span>Step 1 :</span> Choisir un formulaire
+                            </div>
+                            <div class="box-content">
+                                <div class="box-item">
+                                    <div class="box-text">
+                                        <h3>Categories</h3>
+                                        <p>Ajouter une nouvelle Categorie dans la base de données</p>
+                                        <button class="btn-box"><span>Valider</span></button>
+                                    </div>
+                                </div>
+                                <div class="box-item">
+                                    <div class="box-text">
+                                        <h3>Consoles</h3>
+                                        <p>Ajoute une nouvelle Console dans la base de données</p>
+                                        <button class="btn-box"><span>Valider</span></button>
+                                    </div>
+                                </div>
+                                <div class="box-item">
+                                    <div class="box-text">
+                                        <h3>Modèles</h3>
+                                        <p>Ajoute un nouveau Modèle dans la base de données</p>
+                                        <button class="btn-box"><span>Valider</span></button>
+                                    </div>
+                                </div>
+                                <div class="box-item">
+                                    <div class="box-text">
+                                        <h3>Accessoires</h3>
+                                        <p>Ajoute un nouveau Accessoire dans la base de données</p>
+                                        <button class="btn-box"><span>Valider</span></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="main-wrapper">
+                ghjlkmhgjklmetryuioopoiuytreretyuiopopiuyt
+                ghjlkmhgjklmetryuioopoiuytreretyuiopopiuyt
+                ghjlkmhgjklmetryuioopoiuytreretyuiopopiuyt
+                ghjlkmhgjklmetryuioopoiuytreretyuiopopiuyt
+                ghjlkmhgjklmetryuioopoiuytreretyuiopopiuyt
+                ghjlkmhgjklmetryuioopoiuytreretyuiopopiuyt
+                ghjlkmhgjklmetryuioopoiuytreretyuiopopiuyt
+                ghjlkmhgjklmetryuioopoiuytreretyuiopopiuyt
+                ghjlkmhgjklmetryuioopoiuytreretyuiopopiuyt
+                ghjlkmhgjklmetryuioopoiuytreretyuiopopiuyt
+                ghjlkmhgjklmetryuioopoiuytreretyuiopopiuyt
+                </div>
+            
+                </div>
+
+        </main>
+
+    </body>
+</html>

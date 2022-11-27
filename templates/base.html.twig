@@ -13,61 +13,43 @@
             <script src="{{ asset('js/script.js') }}" defer></script>
         {% endblock %}
     </head>
-    <body>
+    <body class="default-page">
 
-        <div class="home-wrapper">
-   
-        <div class="neumorphic-container">
-            <button class="btn-start" id="btn-start">
-                <span>Start</span>
-            </button>
-            <span class="neumorphic-effet1"></span>
-            <span class="neumorphic-effet2"></span>
-            <div class="home-left">
-                <div class="home-box">
-                    <div class="box-titre">
-                        <span>Step 1 :</span> Choisir un formulaire
-                    </div>
-                    <div class="box-content">
-                        <div class="box-item">
-                            <div class="box-text">
-                                <h3>Categories</h3>
-                                <p>Ajouter une nouvelle Categorie dans la base de données</p>
-                                <button class="btn-box"><span>Valider</span></button>
-                            </div>
-                        </div>
-                        <div class="box-item">
-                            <div class="box-text">
-                                <h3>Consoles</h3>
-                                <p>Ajoute une nouvelle Console dans la base de données</p>
-                                <button class="btn-box"><span>Valider</span></button>
-                            </div>
-                        </div>
-                        <div class="box-item">
-                            <div class="box-text">
-                                <h3>Modèles</h3>
-                                <p>Ajoute un nouveau Modèle dans la base de données</p>
-                                <button class="btn-box"><span>Valider</span></button>
-                            </div>
-                        </div>
-                        <div class="box-item">
-                            <div class="box-text">
-                                <h3>Accessoires</h3>
-                                <p>Ajoute un nouveau Accessoire dans la base de données</p>
-                                <button class="btn-box"><span>Valider</span></button>
-                            </div>
-                        </div>
-                    </div>
+        <main class="default-wrapper">
+
+            <section class="default-sidebar start">
+            
+                <div class="neumorphic">
+                
+                    <button class="btn-neumorphic" id="btn-neumorphic">
+                        <span>Start</span>
+                    </button>
+                    <span class="neumorphic-effet1"></span>
+                    <span class="neumorphic-effet2"></span>
+
                 </div>
-            </div>
-            <div class="home-formulaires">
-            <div class="home-form-container">
-                {% block body %}{% endblock %}
-            </div>
-            </div>
-        </div>
-  
-        </div>
+                <div class="sidebar-wrapper">
+                
+                    <div class="sidebar-titre"></div>
+                    <div class="sidebar-content">
+                    
+                        <div class="sidebar-item">
+                            <h3></h3>
+                            <p></p>
+                            <button class="btn-sidebar" id="btn-sidebar"></button>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <section class="default-main">
+            
+            </section>
+
+        </main>
 
     </body>
 </html>
