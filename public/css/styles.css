@@ -56,18 +56,34 @@
 :where(.default-page) {
   background: var(--greyLight-1);
 }
-:where(.default-page) :where(.default-wrapper) {
+:where(.default-page) :where(.default-container) {
   height: 100vh;
+  max-width: 1400px;
   display: flex;
   align-items: center;
+  place-content: center;
+  margin: auto;
+  border-radius: 1rem;
 }
-
-:where(.default-sidebar) {
-  border: solid;
+:where(.default-page) :where(.default-wrapper) {
+  display: flex;
+  align-items: center;
+  place-content: center;
+  height: 80%;
+  width: 80%;
+}
+:where(.default-page) :where(.default-wrapper) :where(.default-sidebar) {
   display: flex;
   place-content: center;
   align-items: center;
+  flex: auto;
 }
+:where(.default-page) :where(.default-wrapper) :where(.default-main) {
+  transition: all 2s ease-in-out;
+  height: 0;
+  flex: 0;
+}
+
 :where(.default-sidebar) :where(.neumorphic) {
   --taille: 300px;
   position: relative;
@@ -114,25 +130,124 @@
   animation: waves 4s linear 2s infinite;
   box-shadow: 0.4rem 0.4rem 0.8rem var(--greyLight-2), -0.4rem -0.4rem 0.8rem var(--white);
 }
-:where(.default-sidebar):where(.start) {
-  --height: 80%;
-  --width: 90%;
-  height: var(--height);
-  width: var(--width);
-  margin: auto;
+:where(.default-sidebar) :where(.sidebar-wrapper) {
+  box-shadow: 0.3rem 0.3rem 0.6rem var(--greyLight-2), -0.2rem -0.2rem 0.5rem var(--white);
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  place-content: center;
+  height: 300px;
+  width: 0;
+  overflow: hidden;
+  transition: all 2s ease-in-out;
 }
-:where(.default-sidebar):where(.start) :where(.btn-neumorphic, .neumorphic-effet1, .neumorphic-effet2) {
+:where(.default-sidebar) :where(.sidebar-wrapper) :where(.sidebar-container) {
+  padding: 1rem 0 4rem;
   display: none;
 }
-:where(.default-sidebar):where(.start) :where(.neumorphic-effet1) {
+:where(.default-sidebar) :where(.sidebar-wrapper) :where(.sidebar-container) :where(.sidebar-titre) {
+  padding: 1rem 0 3rem;
+  font-size: 2rem;
+}
+:where(.default-sidebar) :where(.sidebar-wrapper) :where(.sidebar-container) :where(.sidebar-titre) :where(span) {
+  color: var(--clr-theme);
+}
+:where(.default-sidebar) :where(.sidebar-wrapper) :where(.sidebar-container) :where(.sidebar-content) {
+  display: flex;
+  gap: 3rem;
+}
+:where(.default-sidebar) :where(.sidebar-wrapper) :where(.sidebar-container) :where(.sidebar-content) :where(.sidebar-items) {
+  box-shadow: 0.3rem 0.3rem 0.6rem var(--greyLight-2), -0.2rem -0.2rem 0.5rem var(--white);
+  padding: 0.5rem;
+  width: 140px;
+  border-radius: 1rem;
+}
+:where(.default-sidebar) :where(.sidebar-wrapper) :where(.sidebar-container) :where(.sidebar-content) :where(.sidebar-items) :where(.sidebar-text) {
+  border-radius: 1rem;
+  padding: 1.5rem 0;
+  text-align: center;
+}
+:where(.default-sidebar) :where(.sidebar-wrapper) :where(.sidebar-container) :where(.sidebar-content) :where(.sidebar-items) :where(.sidebar-text) :where(p) {
+  padding: 1.5rem;
+  text-align: justify;
+  line-height: 1.6;
+}
+:where(.default-sidebar) :where(.sidebar-wrapper) :where(.sidebar-container) :where(.sidebar-content) :where(.sidebar-items) :where(.sidebar-text) :where(button) {
+  cursor: pointer;
+  border-radius: 3rem;
+  box-shadow: 0.3rem 0.3rem 0.6rem var(--greyLight-2), -0.2rem -0.2rem 0.5rem var(--white);
+  padding: 0.25rem 2rem;
+  background-color: inherit;
+}
+:where(.default-sidebar) :where(.sidebar-wrapper) :where(.sidebar-container) :where(.sidebar-content) :where(.sidebar-items) :where(.sidebar-items:hover .sidebar-text) {
+  box-shadow: inset 0.2rem 0.2rem 0.5rem var(--greyLight-2), inset -0.2rem -0.2rem 0.5rem var(--white);
+  color: var(--clr-theme);
+}
+
+:where(.default-wrapper.start):where(:has(.btn-sidebar.active)) {
+  gap: 5rem;
+}
+:where(.default-wrapper.start) :where(.neumorphic) {
+  border: solid;
+  display: none;
+  transition: all 1s ease-in-out;
+}
+:where(.default-wrapper.start) :where(.neumorphic) :where(.btn-neumorphic, .neumorphic-effet1, .neumorphic-effet2) {
+  display: none;
+}
+:where(.default-wrapper.start) :where(.neumorphic) :where(.neumorphic-effet1) {
   animation: waves 3s linear;
 }
-:where(.default-sidebar):where(.start) :where(.neumorphic-effet2) {
+:where(.default-wrapper.start) :where(.neumorphic) :where(.neumorphic-effet2) {
   animation: waves 3s linear 1.5s;
 }
-:where(.default-sidebar):where(.start) :where(.neumorphic-effet1, .neumorphic-effet2) {
+:where(.default-wrapper.start) :where(.neumorphic) :where(.neumorphic-effet1, .neumorphic-effet2) {
   background: inherit;
   box-shadow: none;
+}
+:where(.default-wrapper.start) :where(.sidebar-wrapper) {
+  flex: auto;
+}
+:where(.default-wrapper.start) :where(.sidebar-wrapper) :where(.sidebar-container) {
+  display: block;
+}
+:where(.default-wrapper.start) :where(.sidebar-wrapper) :where(.sidebar-container):where(:has(.btn-sidebar.active)) {
+  display: flex;
+  flex-flow: column;
+  padding: 2.1rem;
+}
+:where(.default-wrapper.start) :where(.sidebar-wrapper) :where(.sidebar-container):where(:has(.btn-sidebar.active)) :where(.sidebar-titre) {
+  padding-left: 2rem;
+}
+:where(.default-wrapper.start) :where(.sidebar-wrapper) :where(.sidebar-container):where(:has(.btn-sidebar.active)) :where(.sidebar-content) {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  place-content: center;
+}
+:where(.default-wrapper.start) :where(.sidebar-wrapper) :where(.sidebar-container):where(:has(.btn-sidebar.active)) :where(.sidebar-text):where(:has(.btn-sidebar.active)) {
+  box-shadow: inset 0.2rem 0.2rem 0.5rem var(--greyLight-2), inset -0.2rem -0.2rem 0.5rem var(--white);
+  color: var(--clr-theme);
+}
+:where(.default-wrapper.start) :where(.sidebar-wrapper):where(:has(.btn-sidebar.active)) {
+  transition: all 2s ease-in-out;
+  height: 100%;
+  flex: 1;
+}
+:where(.default-wrapper.start) :where(.default-sidebar) {
+  height: 100%;
+}
+:where(.default-wrapper.start) :where(.default-main.active) {
+  display: block;
+  flex: 1.5;
+  height: 100%;
+  box-shadow: inset 0.2rem 0.2rem 0.5rem var(--greyLight-2), inset -0.2rem -0.2rem 0.5rem var(--white);
+  border-radius: 1rem;
+  padding: 2rem;
+}
+:where(.default-wrapper.start):where(:has(.btn-sidebar.active)) {
+  box-shadow: 0.3rem 0.3rem 0.6rem var(--greyLight-2), -0.2rem -0.2rem 0.5rem var(--white);
+  padding: 5rem;
 }
 
 @keyframes waves {

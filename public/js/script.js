@@ -1,22 +1,22 @@
-const BTN_START = document.querySelector('#btn-start');
+const BTN_START = document.querySelector('#btn-neumorphic');
 
 BTN_START.addEventListener('click', event => {
-    const CIBLE = document.querySelector('.neumorphic-container');
+    const CIBLE = document.querySelector('.default-wrapper');
     CIBLE.classList.toggle('start');
 });
 
-const BTN_BOX = document.querySelectorAll('.btn-box');
+const BTN_SIDEBAR = document.querySelectorAll('.btn-sidebar');
 
-for (let i = 0; i < BTN_BOX.length; i++) {
-    BTN_BOX[i].addEventListener('click', event => {
-        const CIBLE = document.querySelector('.home-left');
-        const CIBLE2 = document.querySelector('.home-formulaires');
+for (let i = 0; i < BTN_SIDEBAR.length; i++) {
+    BTN_SIDEBAR[i].addEventListener('click', event => {
+        const CIBLE = document.querySelector('.sidebar-wrapper');
+        const CIBLE2 = document.querySelector('.default-main');
         CIBLE.classList.add('active');
         CIBLE2.classList.add('active');
         
-        for (let j = 0; j < BTN_BOX.length; j++) {
-            BTN_BOX[j].classList.remove('active');
+        for (let j = 0; j < BTN_SIDEBAR.length; j++) {
+            BTN_SIDEBAR[j].classList.remove('active');
         }
-        BTN_BOX[i].classList.add('active');
+        BTN_SIDEBAR[i].classList.add('active');
     });
 }

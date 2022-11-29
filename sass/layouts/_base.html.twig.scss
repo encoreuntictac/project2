@@ -1,25 +1,44 @@
 @use '../abstracts' as *;
 
+
+
 :where(.default-page) {
     background: var(--greyLight-1);
 
-
-    :where(.default-wrapper) {
-        // border: solid 5px rgb(53, 139, 0);
+    :where(.default-container) {
         height: 100vh;
+        max-width: 1400px;
         display: flex;
         align-items: center;
+        place-content: center;
+        margin: auto;
+        border-radius: $border-radius;
+    }
+
+    :where(.default-wrapper) {
+        display: flex;
+        align-items: center;
+        place-content: center;
+        height: 80%;
+        width: 80%;
+
+        :where(.default-sidebar) {
+            display: flex;
+            place-content: center;
+            align-items: center;
+            flex: auto;
+        }
+        :where(.default-main) {
+            transition: all 2s ease-in-out;
+            height: 0;
+            flex: 0;
+        }
     }
 }
 
 :where(.default-sidebar) {
-    border: solid;
-    display: flex;
-    place-content: center;
-    align-items: center;
 
     :where(.neumorphic) {
-        // border: solid;
         --taille: 300px;
 
 
@@ -30,9 +49,7 @@
         place-content: center;
         align-items: center;
         box-shadow: $shadow;
-        border-radius: 1rem;
-        // transition: height, width, 2s ease-in-out;
-        // overflow: hidden;
+        border-radius: $border-radius;
 
         :where(.btn-neumorphic) {
             --taille: 150px;
@@ -77,16 +94,82 @@
             box-shadow: .4rem .4rem .8rem var(--greyLight-2), 
             -.4rem -.4rem .8rem var(--white);
         }
-    }
 
-    &:where(.start) {
-        --height: 80%;
-        --width: 90%;
+    }
+    :where(.sidebar-wrapper) {
+        // border: solid rgb(0, 37, 91);
+        box-shadow: $shadow;
+        border-radius: $border-radius;
+        display: flex;
+        align-items: center;
+        place-content: center;
+        height: 300px;
+        width: 0;
+        overflow: hidden;
+        transition: all 2s ease-in-out; //! ok
+
+        :where(.sidebar-container) {
+            // border: solid red;
+            padding: 1rem 0 4rem;
+            display: none;
+            
+
+            :where(.sidebar-titre) {
+                padding: 1rem 0 3rem;
+                font-size: 2rem;
     
-        
-        height: var(--height);
-        width: var(--width); //* A cause du align-items: center du parent m'oblige à préciser le WIDTH
-        margin: auto;
+                :where(span) {
+                    color: var(--clr-theme);
+                }
+            }
+            :where(.sidebar-content) {
+                display: flex;
+                gap: 3rem;
+
+                :where(.sidebar-items) {
+                    box-shadow: $shadow;
+                    padding: .5rem;
+                    width: 140px;
+                    border-radius: $border-radius;
+
+                    :where(.sidebar-text) {
+                        border-radius: $border-radius;
+                        padding: 1.5rem 0;
+                        text-align: center;
+
+                        :where(p) {
+                            padding: 1.5rem;
+                            text-align: justify;
+                            line-height: 1.6;
+                        }
+
+                        :where(button) {
+                            cursor: pointer;
+                            border-radius: 3rem;
+                            box-shadow: $shadow;
+                            padding: .25rem 2rem;
+                            background-color: inherit;
+                        }
+                    }
+                    :where(.sidebar-items:hover .sidebar-text) {
+                        box-shadow: $inner-shadow;
+                        color: var(--clr-theme);
+                    }
+                }
+            }
+        }
+    }
+}
+
+:where(.default-wrapper.start) {
+    
+    &:where(:has(.btn-sidebar.active)) {
+        gap: 5rem;
+    }
+    :where(.neumorphic) {
+        border: solid;
+        display: none;
+        transition: all 1s ease-in-out;
 
         :where(.btn-neumorphic, .neumorphic-effet1, .neumorphic-effet2) {
             display: none;
@@ -102,5 +185,54 @@
             box-shadow: none;
         }
     }
-}
+    :where(.sidebar-wrapper) {
+        flex: auto;
+        
+        :where(.sidebar-container) {
+            display: block;
+            
+            &:where(:has(.btn-sidebar.active)) {
+                display: flex;
+                flex-flow: column;
+                padding: 2.1rem;
 
+                :where(.sidebar-titre) {
+                    padding-left: 2rem;
+                }
+                :where(.sidebar-content) {
+                    display: flex;
+                    flex-wrap: wrap;
+                    align-items: center;
+                    place-content: center;
+                }
+                :where(.sidebar-text) {
+                    &:where(:has(.btn-sidebar.active)) {
+                        box-shadow: $inner-shadow;
+                        color: var(--clr-theme);
+                    }
+                }
+            }
+        }
+        &:where(:has(.btn-sidebar.active)) {
+            transition: all 2s ease-in-out;
+            height: 100%;
+            flex: 1;
+        }
+    }
+
+    :where(.default-sidebar) {
+        height: 100%;
+    }
+    :where(.default-main.active) {
+        display: block;
+        flex: 1.5;
+        height: 100%;
+        box-shadow: $inner-shadow;
+        border-radius: $border-radius;
+        padding: 2rem;
+    }
+    &:where(:has(.btn-sidebar.active)) {
+        box-shadow: $shadow;
+        padding: 5rem;
+    }
+} 
